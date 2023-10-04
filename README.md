@@ -24,9 +24,9 @@ let queue = new cloud.Queue();
 
 queue.setConsumer(inflight (message: str) => {
   let index = counter.inc();
-  bucket.put("wing-${index}.txt", "Hello, ${message}");
-  log("file wing-${index}.txt created");
-});
+    bucket.put("wing-${index}.txt", "Hello, ${message}");
+	  log("file wing-${index}.txt created");
+	  });
 ```
 ## Run locally
 ```bash
