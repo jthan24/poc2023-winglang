@@ -10,7 +10,7 @@ This tool have a plugin on VSCode for made more easy writing code task
 
 # Hello Wing
 ```bash
-mkdir hello-wing && cd hello-wing && touch hello.w
+mkdir hello-wing && cd hello-wing && touch main.w
 ```
 ## Our fist file
 This code should be mostly self explanatory. We define a queue and a counter, and every time a message is added to the queue, a handler is triggered and creates a file named wing-<counter-index>.txt with "Hello, ${message}!" content, and the counter is incremented by 1.
@@ -30,14 +30,14 @@ queue.setConsumer(inflight (message: str) => {
 ```
 ## Run locally
 ```bash
-wing it hello.w
+wing it main.w
 ```
 
 ## Deploy to AWS
 ```bash
 # Compile to create a terraform output
-wing compile --target tf-aws hello.w
-cd ./target/hello.tfaws
+wing compile --target tf-aws main.w
+cd ./target/main.tfaws
 terraform init
 terraform plan
 terraform apply
@@ -47,12 +47,12 @@ terraform destroy
 
 ## Deploy to Azure - beta
 ```bash
-AZURE_LOCATION=eastus2 wing compile --target tf-azure hello.w
+AZURE_LOCATION=eastus2 wing compile --target tf-azure main.w
 ```
 
 ## Deploy to GCP - beta
 ```bash
-GOOGLE_PROJECT_ID=123sdfs GOOGLE_STORAGE_LOCATION=NORTHAMERICA-NORTHEAST2 wing compile --target tf-gcp hello.w
+GOOGLE_PROJECT_ID=123sdfs GOOGLE_STORAGE_LOCATION=NORTHAMERICA-NORTHEAST2 wing compile --target tf-gcp main.w
 ```
 
 
